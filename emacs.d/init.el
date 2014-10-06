@@ -1,4 +1,3 @@
-
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
 
@@ -101,6 +100,7 @@
 
 (require 'init-dash)
 (require 'init-ledger)
+
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
@@ -145,6 +145,21 @@
             (message "init completed in %.2fms"
                      (sanityinc/time-subtract-millis after-init-time before-init-time))))
 
+;;----------------------------------------------------------------------------
+;; From Stanley
+;;----------------------------------------------------------------------------
+
+;; Chinese input method for emacs
+; (add-to-list 'load-path "~/.emacs.d/ibus-el")
+; (require 'ibus)
+; (add-hook 'after-init-hook 'ibus-mode-on)
+;; Since the agent file is in same folder with ibus.el, no need to specify the path
+; (setq ibus-agent-file-name "/PATH/TO/ibus-el-agent")
+;; Use S-SPC to toggle input status
+; (ibus-define-common-key ?\S-\s nil)
+; (global-set-key (kbd "C-.") 'ibus-toggle)
+;; Change cursor color depending on IBus status
+; (setq ibus-cursor-color '("red" "blue" "limegreen"))
 
 (provide 'init)
 
@@ -152,3 +167,4 @@
 ;; coding: utf-8
 ;; no-byte-compile: t
 ;; End:
+
